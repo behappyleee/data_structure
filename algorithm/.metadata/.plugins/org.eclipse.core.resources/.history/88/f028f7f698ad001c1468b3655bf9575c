@@ -1,0 +1,38 @@
+package algo_programmers;
+
+public class Algo_Programmers_03 {
+	  public static int[] solution(int[] numbers) {
+	        int[] answer = {};
+	        List <Integer> temp = new ArrayList<Integer>();
+	        List <Integer> answerList = new ArrayList<Integer>();
+	        
+	        //  정부 배열 numbers 서로 다른 index 에 있는 두 개의 수를 뽑아 더해서 만들 수 있는
+	        //  모든 수를 배열에 오름차순으로 담아 Return
+	        for(int i=0; i<numbers.length; i++) {
+	            for(int j=0; j<numbers.length; j++) {
+	                if(i != j) {
+	                    int plus = numbers[i] + numbers[j];
+	                    temp.add(plus);
+	                }
+	            }
+	        }
+	        
+	        for(int each : temp) {
+	            if(!answerList.contains(each)) {
+	                answerList.add(each);
+	            }
+	        }
+	        Collections.sort(answerList);
+	        System.out.println("each Print : " + answerList);        
+	        System.out.println("temp 2 : " + temp);
+	        
+	        answer = new int[ answerList.size() ];
+	        int cnt = 0;
+	       for(int a : answerList) {
+	           answer[cnt] = a;
+	           cnt++;
+	       }
+	        
+	        return answer;
+	    }
+}
